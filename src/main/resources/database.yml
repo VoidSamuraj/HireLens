@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://db:5432/jobdb
+    username: postgres
+    password: admin
+    driver-class-name: org.postgresql.Driver
+
+    hikari:
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      minimum-idle: 5
+      maximum-pool-size: 10
+      keepalive-time: 30000
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration

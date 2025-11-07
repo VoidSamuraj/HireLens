@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+
+  db:
+    image: postgres:16
+    container_name: job_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: jobdb
+      POSTGRES_USER: jobuser
+      POSTGRES_PASSWORD: admin
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+  python-backend:
+    build:
+      context: ./python-backend
+      args:
+        USE_CUDA: "true"  # <-- change to "false" if you don't have CUDA
+    container_name: python-backend
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./python-backend/.env
+    environment:
+      - USE_CUDA=true
+      - HF_HOME=/models
+    volumes:
+      - ./python-backend/models:/models
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [ gpu ]
+  app:
+    build:
+      context: .
+      args:
+        REACT_APP_API_URL: http://localhost:8080
+    container_name: job_server
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/jobdb
+      SPRING_DATASOURCE_USERNAME: jobuser
+      SPRING_DATASOURCE_PASSWORD: admin
+    ports:
+      - "8080:8080"

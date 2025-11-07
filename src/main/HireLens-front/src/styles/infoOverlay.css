@@ -1,0 +1,239 @@
+#info-overlay {
+  font-family: monospace;
+  position: absolute;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+#info-overlay.hidden {
+  display: none;
+}
+
+.close-overlay-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: 0px solid black;
+  width: 60px;
+  height: 60px;
+}
+
+.close-overlay-button>img {
+  width: 50px;
+  height: 50px;
+}
+
+.close-overlay-button:hover>img {
+  cursor: pointer;
+  animation: wiggle 0.8s ease-in-out infinite;
+}
+
+#info-overlay>div {
+  position: relative;
+  background-color: #121212FF;
+  color: #33ff77;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 16px;
+  line-height: 1.4;
+  padding: 20px;
+  border-radius: 8px;
+  border: 2px solid #33ff77;
+  box-shadow: 0 0 10px #33ff77aa;
+  width: 600px;
+  max-width: 90vw;
+  height: 400px;
+  overflow-y: auto;
+  position: relative;
+}
+#info-overlay>div.cancelled{
+  border: 2px solid #ff4d4d;
+  box-shadow: 0 0 10px #ff4d4d;
+  animation: pulseError 1s infinite alternate;
+}
+
+.cursor {
+  display: inline-block;
+  width: 10px;
+  height: 18px;
+  /* wymusza wysokość (na przykład wysokość linii) */
+  background-color: #33ff77;
+  margin-left: 2px;
+  animation: blink 1s step-start infinite;
+  vertical-align: bottom;
+}
+
+@keyframes blink {
+  50% {
+    background-color: transparent;
+  }
+}
+
+.line:last-child::before {
+  content: ">";
+  color: #33ff77;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.line {
+  cursor: default;
+  user-select: none;
+  white-space: pre-wrap;
+  width: fit-content;
+}
+.line.error {
+  color: #cc4444;
+}
+
+
+.linux-progress {
+  color: #33ff77;
+  align-items: center;
+  user-select: none;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.progress-text {
+  min-width: 80px;
+  text-align: right;
+}
+
+.progress-bar {
+  min-width: 120px;
+  letter-spacing: 3px;
+  user-select: none;
+}
+
+/* Animowana zmiana paska */
+@keyframes progress-loader {
+  0% {
+    content: "[...........]";
+  }
+
+  10% {
+    content: "[#..........]";
+  }
+
+  20% {
+    content: "[##.........]";
+  }
+
+  30% {
+    content: "[###........]";
+  }
+
+  40% {
+    content: "[####.......]";
+  }
+
+  50% {
+    content: "[#####......]";
+  }
+
+  60% {
+    content: "[######.....]";
+  }
+
+  70% {
+    content: "[#######....]";
+  }
+
+  80% {
+    content: "[########...]";
+  }
+
+  90% {
+    content: "[#########..]";
+  }
+
+  100% {
+    content: "[##########]";
+  }
+}
+
+
+.terminal-loader-ascii {
+  font-family: monospace;
+  color: #33ff77;
+  user-select: none;
+  width: 1ch;
+  display: inline-block;
+  animation: spin-ascii 1.2s steps(4) infinite;
+}
+
+@keyframes spin-ascii {
+  0% {
+    content: "-";
+  }
+
+  25% {
+    content: "\\";
+  }
+
+  50% {
+    content: "|";
+  }
+
+  75% {
+    content: "/";
+  }
+
+  100% {
+    content: "-";
+  }
+}
+
+/* content w animacji CSS nie działa na zwykłych elementach, więc trzeba użyć ::after */
+
+.terminal-loader-ascii::after {
+  content: "-";
+  animation: spin-ascii 1.2s steps(4) infinite;
+  display: inline-block;
+  color: #33ff77;
+}
+
+
+@keyframes wiggle {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  15% {
+    transform: rotate(5deg);
+  }
+
+  30% {
+    transform: rotate(-5deg);
+  }
+
+  45% {
+    transform: rotate(4deg);
+  }
+
+  60% {
+    transform: rotate(-4deg);
+  }
+
+  75% {
+    transform: rotate(2deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+@keyframes pulseError {
+  from { box-shadow: 0 0 5px #ff4d4d; }
+  to   { box-shadow: 0 0 15px #ff0000; }
+}

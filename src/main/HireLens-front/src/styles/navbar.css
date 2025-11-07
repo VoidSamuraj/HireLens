@@ -1,0 +1,226 @@
+#navbar {
+  position: fixed;
+  z-index: 10;
+  top: 0px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100px;
+  perspective: 600px;
+  background: rgba(18, 27, 42, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+  overflow: hidden;
+  transition: height 0.3s ease;
+}
+
+#navbar.open {
+  height: 165px;
+}
+
+#side-buttons {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  right: 0;
+  top: 0;
+}
+
+#nav-buttons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+#server-status,
+#language-button,
+#nav-buttons a,
+.image-button-toggle {
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  color: #FFFFFF;
+  padding: 10px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  box-shadow: none;
+}
+#server-status:hover,
+#language-button:hover,
+#nav-buttons a:hover,
+.image-button-toggle:hover,
+.input-icon:hover {
+  background-color: rgba(13, 205, 254, 0.8);
+  border-color: #0DCDFE;
+  box-shadow: 0 0 10px #0DCDFE;
+  color: #0F2027;
+}
+
+
+
+#flip-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.5s ease;
+  transform-style: preserve-3d;
+  min-height: 100px;
+  max-height: 100px;
+}
+
+#flip-card>div {
+  transition: transform 0.5s ease;
+  backface-visibility: hidden;
+  position: absolute;
+  display: flex;
+  min-height: 65px;
+}
+
+#nav-buttons {
+  transform: translateZ(50px) rotateX(0deg);
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+  /* wszystko w centrum */
+  gap: 16px;
+}
+
+#search {
+  transform: rotateX(-90deg) translateZ(50px);
+  display: flex;
+  width: 40%;
+  align-items: center;
+  min-width: 480px;
+}
+
+#search>input {
+  width: 100%;
+  align-self: center;
+  height: 40px;
+  text-align: center;
+  padding-right: 71px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#searchInputBox {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  right: 0px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+#searchInputBox * {
+
+  font-size: 1rem;
+  font-weight: 500;
+  color: #0F2027;
+}
+
+#searchInputBox>* {
+  width: 65px;
+}
+
+.input-icon {
+
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  height: 46px;
+  width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-left: 1px solid black;
+}
+
+.input-icon>img {
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(0deg) brightness(200%);
+
+}
+
+#flip-card.flipped #nav-buttons {
+  transform: rotateX(90deg) translateZ(50px);
+}
+
+#flip-card.flipped #search {
+  transform: rotateX(0deg) translateZ(50px);
+}
+
+#server-status,
+.image-button-toggle,
+#language-button {
+  position: relative;
+  z-index: 1000;
+  align-self: center;
+  margin-right: 16px;
+  width: 60px;
+  /* rozmiar pola na ikonę */
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.icon {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  position: absolute;
+}
+
+.icon.visible {
+  visibility: visible;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.icon.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+@media (max-width: 1020px) {
+  #flip-card>div {
+    margin-right: 60px;
+  }
+}
+
+@media (max-width: 950px) {
+  #flip-card>div {
+    margin-right: 100px;
+  }
+}
+
+@media (max-width: 900px) {
+  #flip-card>div {
+    margin-right: 140px;
+  }
+}
+
+@media (max-width: 850px) {
+  #flip-card>div {
+    margin-right: 200px;
+  }
+}
+
+@media (max-width: 800px) {
+  #flip-card>div {
+    margin-right: 210px;
+  }
+}

@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: Job Requirements Analyzer
+
+  config:
+    import: classpath:database.yml
+
+adzuna:
+  api:
+    id: [YOUR_ADZUNA_API_ID]
+    key: [YOUR_ADZUNA_API_KEY]
+
+ai-server:
+  address: http://python-backend:8000

@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+transformers
+accelerate
+langchain
+langchain_community
+langchain-huggingface
+sentence-transformers

@@ -1,0 +1,80 @@
+.job-filter {
+  display: flex;
+  align-items: center;
+  align-self: center;
+  gap: 2rem;
+  padding: 10px;
+  padding-top: 5px;
+  width: max-content;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+}
+
+.job-filter-levels input[type="radio"],
+.job-filter-undefined input[type="checkbox"] {
+  display: none;
+}
+
+.job-filter-levels {
+  display: flex;
+  gap: 1rem;
+}
+
+.job-filter-levels label,
+.job-filter-undefined label {
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  padding: 10px 24px;
+}
+
+.job-filter-levels label:hover,
+.job-filter-undefined label:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: #fff;
+}
+
+.job-filter-levels label:has(input[type="radio"]:checked):hover,
+.job-filter-undefined label:has(input[type="checkbox"]:checked):hover {
+  filter: brightness(0.8);
+}
+
+#jobs-per-api-label:hover {
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.job-filter-levels input[type="radio"],
+.job-filter-undefined input[type="checkbox"] {
+  margin-right: 4px;
+}
+
+.job-filter-levels label:has(input:checked),
+.job-filter-undefined label:has(input:checked) {
+  background-color: rgba(13, 205, 254, 0.8);
+  border-color: #0DCDFE;
+  box-shadow: 0 0 5px #0DCDFE;
+  color: #0F2027;
+}
+
+.filter-label {
+
+  align-self: center;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+#jobs-per-api-label {
+  margin-left: 1rem;
+  padding-right: 0px;
+}
+
+#jobs-per-api-label>input {
+  text-align: center;
+  margin-left: 0.5rem;
+  padding: 9px 0px;
+  width: 60px;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
