@@ -36,24 +36,26 @@ The system consists of three main layers: **Frontend (React)**, **Backend (Sprin
 **Diagrams:**
 
 * **Component Diagram** – shows connections between frontend, backend, and AI.
-<div style="background-color: white; display: inline-block; padding: 10px; margin-bottom:20px;">
-    <img src="./diagrams/AI_Spring_Components.svg" alt="Component Diagram">
-</div>
+<p align="center">
+  <a href="./diagrams/AI_Spring_Components.svg">
+    <img src="./diagrams/AI_Spring_Components.png" alt="Class Diagram" width="800">
+  </a>
+</p>
 
 * **Deployment Diagram** – illustrates container layout, networks, and database placement.
-<div style="background-color: white; display: inline-block; padding: 10px; margin-bottom:20px;">
-    <img src="./diagrams/AI_Spring_Deployment.svg" alt="Deployment Diagram">
-</div> 
+<p align="center">
+  <a href="./diagrams/AI_Spring_Deployment.svg">
+    <img src="./diagrams/AI_Spring_Deployment.png" alt="Class Diagram" width="500">
+  </a>
+</p>
 
 * **Class Diagram** – key backend entities and their relationships.
-<div style="background-color: white; display: inline-block; padding: 10px; margin-bottom:20px;">
-    <img src="./diagrams/AI_Spring_Class.svg" alt="Class Diagram">
-</div> 
+    
+  [![Class Diagram](./diagrams/AI_Spring_Class.png)](./diagrams/AI_Spring_Class.svg)
 
 * **Sequence Diagram** – flow of job offer analysis and inter-component communication.
-<div style="background-color: white; display: inline-block; padding: 10px;">
-    <img src="./diagrams/AI_Spring_Sequence.svg" alt="Sequence Diagram">
-</div> 
+  [![Class Diagram](./diagrams/AI_Spring_Sequence.png)](./diagrams/AI_Spring_Sequence.svg)
+
 
 - [Frontend Details](./src/main/HireLens-front/Frontend_README.md)
 - [Spring Backend Details](./src/main/java/com/voidsamuraj/HireLens/Backend_README.md)
