@@ -149,7 +149,7 @@ class JobMapperTest {
         assertNotNull(je);
         assertNull( je.getId());
         assertEquals(jobDto.getTitle(), je.getTitle());
-        assertEquals(jobDto.getCompanyName(), je.getCompanyName());
+        assertEquals(jobDto.getCompanyName().getDisplay_name(), je.getCompanyName());
         assertEquals(jobDto.getRedirectUrl(), je.getUrl());
         assertEquals(jobDto.getCategory().getLabel(), je.getCategory());
         assertEquals(jobDto.getContractType(), je.getJobType());
@@ -164,7 +164,7 @@ class JobMapperTest {
         assertNotNull(ajd);
         assertEquals(job.getId().toString(), ajd.getId());
         assertEquals(job.getTitle(), ajd.getTitle());
-        assertEquals(job.getCompanyName(), ajd.getCompanyName());
+        assertEquals(job.getCompanyName(), ajd.getCompanyName().getDisplay_name());
         assertEquals(job.getUrl(), ajd.getRedirectUrl());
         assertTrue(job.getCategory().contains(ajd.getCategory().getLabel()));
         assertEquals(job.getJobType(), ajd.getContractType());

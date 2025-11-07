@@ -1,7 +1,6 @@
 package com.voidsamuraj.HireLens.dto.aggregation;
 
 import com.voidsamuraj.HireLens.entity.JobEntity;
-import com.voidsamuraj.HireLens.service.ai.AiClientService;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;

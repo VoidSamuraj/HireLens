@@ -4,7 +4,6 @@ import com.voidsamuraj.HireLens.client.remoteok.api.DefaultApi;
 import com.voidsamuraj.HireLens.client.remoteok.dto.Job;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestClientException;
@@ -16,7 +15,7 @@ import java.util.List;
 /**
  * Service implementation for fetching RemoteOK job listings using asynchronous API client.
  *
- * Uses a reactive {@link DefaultApi} client to retrieve job listings as {@link Flux} streams,
+ * Uses a reactive {@link DefaultApi} client to retrieve job listings as {@link  reactor.core.publisher.Flux} streams,
  * then filters and paginates the results according to the search query, page number, and page size.
  *
  * The fetchJobs method supports keyword filtering by checking if all search tokens

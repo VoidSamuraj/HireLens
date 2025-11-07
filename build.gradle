@@ -13,9 +13,6 @@ group = 'com.voidsamuraj'
 version = '0.0.1-SNAPSHOT'
 description = 'Job Requirements Analyzer'
 
-// Folder na pobrany JSON
-def openApiJsonDir = "$projectDir/openapi"
-def openApiJsonFile = "$openApiJsonDir/remote-ok-openapi.json"
 java {
 	toolchain {
 		languageVersion = JavaLanguageVersion.of(21)

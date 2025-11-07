@@ -62,7 +62,7 @@ class  JoinriseJobServiceTest {
         List<JoinriseJobDto.RiseJobDto> filtered = service.fetchJobs("backend techcorp");
 
         assertEquals(1, filtered.size());
-        assertEquals("Backend Engineer", filtered.get(0).getTitle());
+        assertEquals("Backend Engineer", filtered.getFirst().getTitle());
     }
 
     @Test

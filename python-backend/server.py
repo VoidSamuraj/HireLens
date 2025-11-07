@@ -157,15 +157,6 @@ class AnalysisResult(BaseModel):
     seniority: str
     skills:  Dict[str, int]
 
-# class AnalysisResult(BaseModel):
-#     """The result of analyzing a job offer: seniority + list of skills."""
-#     seniority: str
-#     skills:  Dict[str, Dict[str, int]] | None = None
-
-# class GroupResult(BaseModel):
-#     """The result of grouping skills."""
-#     skills:  Dict[str, str]
-
 class JobOffer(BaseModel):
     """Input model representing a job offer text to analyze."""
     text: str

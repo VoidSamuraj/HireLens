@@ -38,7 +38,7 @@ public class SkillEntity {
     private JobEntity job;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "skill", referencedColumnName = "skill", nullable = true)
+    @JoinColumn(name = "skill", referencedColumnName = "skill")
     private Groups group;
 
     private Integer level;

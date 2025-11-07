@@ -5,6 +5,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.voidsamuraj.HireLens.entity.JobEntity;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
+
+import java.nio.charset.StandardCharsets;
 import java.util.Locale;
 import java.util.MissingResourceException;
 import java.io.IOException;
@@ -68,7 +70,7 @@ public class LocationMapper {
         }
 
         try {
-            String query = URLEncoder.encode(raw, "UTF-8");
+            String query = URLEncoder.encode(raw, StandardCharsets.UTF_8);
             String urlStr = "https://nominatim.openstreetmap.org/search?q=" + query
                     + "&format=json&addressdetails=1&limit=1";
 
@@ -79,7 +81,7 @@ public class LocationMapper {
                 String response = sc.useDelimiter("\\A").next();
                 JsonNode node = MAPPER.readTree(response);
 
-                if (node.isArray() && node.size() > 0) {
+                if (node.isArray() && !node.isEmpty()) {
                     JsonNode address = node.get(0).path("address");
                     String code2 = address.path("country_code").asText("").toUpperCase();
                     if (!code2.isEmpty()) {

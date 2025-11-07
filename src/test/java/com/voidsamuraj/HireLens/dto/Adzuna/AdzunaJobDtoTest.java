@@ -38,7 +38,7 @@ public class AdzunaJobDtoTest {
         assertEquals("https://adzuna.com/jobs/abc123", jobDto.getRedirectUrl());
         assertEquals(40000, jobDto.getSalaryMin());
         assertEquals(50000, jobDto.getSalaryMax());
-        assertTrue(jobDto.getSalaryIsPredicted());
+        assertTrue(Boolean.parseBoolean(jobDto.getSalaryIsPredicted()));
         assertEquals("full_time", jobDto.getContractType());
         assertEquals("TechCorp", jobDto.getCompanyName());
 

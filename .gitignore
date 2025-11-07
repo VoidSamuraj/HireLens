@@ -43,4 +43,3 @@ out/
 /src/main/resources/application.yml
 /python-backend/.env
 /gradle/
-/python-backend/.env

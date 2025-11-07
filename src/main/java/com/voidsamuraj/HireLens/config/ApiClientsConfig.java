@@ -2,9 +2,6 @@ package com.voidsamuraj.HireLens.config;
 
 import com.voidsamuraj.HireLens.client.remoteok.api.DefaultApi;
 import com.voidsamuraj.HireLens.service.ai.AiClientService;
-import com.voidsamuraj.HireLens.service.orchestrator.DownloadDataService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.http.client.ClientHttpRequestFactorySettings;
 import org.springframework.boot.web.client.RestTemplateBuilder;

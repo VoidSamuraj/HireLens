@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -89,38 +88,11 @@ public class JobEntity {
 
     @Column(columnDefinition = "TEXT")
     private String description;
-/*
-    @Builder.Default
-    @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name = "job_skills", joinColumns = @JoinColumn(name = "job_id"))
-    @MapKeyColumn(name = "technology")
-    @Column(name = "level")
-    private Map<String, Integer> skills = new HashMap<>();
-    */
+
     @Builder.Default
     @OneToMany(mappedBy = "job", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<SkillEntity> skills = new ArrayList<>();
 
-    /**
-     * Populates the {@code skills} list from a nested map of group -> skill -> level.
-     * Existing skills are cleared before adding new ones.
-     *
-     * @param skillMap nested map containing skill groups and their corresponding skills with levels
-     */
-   /* public void setSkillsGrouped(Map<String, Map<String, Integer>> skillMap) {
-        this.skills.clear();
-        skillMap.forEach((group, skillsInGroup) -> {
-            skillsInGroup.forEach((skillInGroup, level) ->{
-                SkillEntity js = new SkillEntity();
-                js.setJob(this);
-                js.setGroup(group);
-                js.setSkill(skillInGroup);
-                js.setLevel(level);
-                this.skills.add(js);
-
-            });
-        });
-    }*/
     /**
      * Populates the {@code skills} list from a map of skill -> level.
      * Existing skills are cleared before adding new ones.
@@ -137,7 +109,6 @@ public class JobEntity {
                 this.skills.add(js);
             });
     }
-
 
     @Column(name = "tsv_en", insertable = false, updatable = false)
     private String tsvEn;

@@ -8,7 +8,7 @@ import lombok.Data;
  * <p>
  * Type parameter:
  * <ul>
- *     <li><code>T</code>: the type of the payload being sent (e.g., {@link WsDataDto}, {@link DataUpdateStatus}).</li>
+ *     <li><code>T</code>: the type of the payload being sent (e.g., {@link DataType}, {@link DataUpdateStatus}).</li>
  * </ul>
  * </p>
  *

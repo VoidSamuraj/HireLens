@@ -1,9 +1,6 @@
 package com.voidsamuraj.HireLens.service;
 
-import com.voidsamuraj.HireLens.dto.Adzuna.AdzunaCategoryDto;
-import com.voidsamuraj.HireLens.dto.Adzuna.AdzunaJobDto;
-import com.voidsamuraj.HireLens.dto.Adzuna.AdzunaLocationDto;
-import com.voidsamuraj.HireLens.dto.Adzuna.AdzunaResponseDto;
+import com.voidsamuraj.HireLens.dto.Adzuna.*;
 import com.voidsamuraj.HireLens.service.api.AdzunaJobService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.AfterEach;
@@ -40,7 +37,7 @@ class AdzunaJobServiceTest {
         AdzunaJobDto jobDto = new AdzunaJobDto();
         jobDto.setId("abc123");
         jobDto.setTitle("Java Developer");
-        jobDto.setCompanyName("TechCorp");
+        jobDto.setCompanyName(new AdzunaCompanyDto("TechCorp"));
         jobDto.setRedirectUrl("https://adzuna.com/jobs/abc123");
 
         // Opcjonalnie ustaw kategorie i lokalizacje
@@ -66,7 +63,7 @@ class AdzunaJobServiceTest {
         assertNotNull(result);               // nie może być null
         assertEquals(1, result.size());      // powinna być jedna pozycja
         assertEquals("Java Developer", result.getFirst().getTitle());
-        assertEquals("TechCorp", result.getFirst().getCompanyName());
+        assertEquals("TechCorp", result.getFirst().getCompanyName().getDisplay_name());
         assertEquals("https://adzuna.com/jobs/abc123", result.getFirst().getRedirectUrl());
         assertEquals("IT / Software", result.getFirst().getCategory().getLabel());
         assertEquals("London, UK", result.getFirst().getLocation().getDisplayName());

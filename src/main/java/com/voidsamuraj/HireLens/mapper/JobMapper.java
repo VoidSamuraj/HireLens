@@ -12,7 +12,6 @@ import com.voidsamuraj.HireLens.entity.JobEntity;
 import com.voidsamuraj.HireLens.dto.Remotive.RemotiveJobDto;
 import com.voidsamuraj.HireLens.entity.JobLevel;
 import com.voidsamuraj.HireLens.util.DateParser;
-import org.springframework.stereotype.Component;
 
 import java.net.URI;
 import java.util.*;
